@@ -14,7 +14,7 @@ function addSmileys(str) {
 	for (var i=0, il=smileys.length, img; i<il; i+=2) {
 
 		img = imgHtml( smileys[i+1] );
-		str = str_replace( smileys[i], img );
+		str = str_replace( str, smileys[i], img );
 
 	}
 
@@ -22,7 +22,7 @@ function addSmileys(str) {
 }
 
 function imgHtml(strImg) {
-	return '<img src="' + strImg + '" width="16" height="16">';
+	return '<img src="../' + strImg + '" width="16" height="16">';
 }
 
 function str_replace(argvalue, x, y) {

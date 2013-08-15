@@ -20,6 +20,8 @@ function getResponse() {
 
 	var resp = top.Cookie.Get("Response");
 
+	resp = top.Smileys.addSmileys(resp);
+
 	top.HTML.append(resp, "Main");
 
 }

@@ -8,8 +8,15 @@ var server = http.createServer(function (request, response) {
 	if (c) {
 		cData = cookie.parse( c );
 
-		cResponse = cookie.serialize("Response", "You sent: " + cData.Request);
+		if (!cData || !cData.Request) {
+			cResponse = "Boo :( try again";
+		} else {
+			cResponse = "Yay :) You sent: " + cData.Request;
+		}
+		cResponse = cookie.serialize("Response", cResponse);
 
+	} else {
+		cResponse = cookie.serialize("Response", "You sent nothing :(");
 	}
 
 	var img = fs.readFileSync("./blank.gif");
