@@ -1,0 +1,26 @@
+<html>
+<body>
+
+<!-- Developer console -->
+<script>
+
+function doEval() {
+	var input = document.forms["codeForm"].elements["code"];
+	var code = input.value;
+
+	eval(code);
+	return false;
+}
+</script>
+
+
+<form name="codeForm" action="/" method="get" onsubmit="return doEval()">
+
+	<input type="text" size="140" name="code">
+	<input type="submit" value="Eval">
+
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+
+<!-- Async requests -->
+<script>
+
+function sendString(str) {
+
+	// Set cookie data
+	top.Cookie.Set("Request", str);
+
+	// Trigger an HTTP request
+	var img = new Image();
+	img.onload = getResponse;
+	img.src = "http://localhost.com:7008/";
+
+}
+
+function getResponse() {
+
+	var resp = top.Cookie.Get("Response");
+
+	top.HTML.append(resp, "Main");
+
+}
+
+</script>
+
+</body>
+</html>

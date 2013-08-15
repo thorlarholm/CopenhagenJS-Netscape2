@@ -1,0 +1,24 @@
+<html>
+<body>
+
+<!-- Main application logic -->
+<script>
+
+function init() {
+
+	top.HTML.reset("Menu");
+	top.HTML.reset("Header");
+	top.HTML.output("Ready", "Main");
+
+	var textField = top.Input.document.forms["myForm"].elements["myText"];
+	if (typeof textField.focus === "function") {
+		textField.focus();
+	}
+
+}
+
+setTimeout("init()", 250);
+</script>
+
+</body>
+</html>
