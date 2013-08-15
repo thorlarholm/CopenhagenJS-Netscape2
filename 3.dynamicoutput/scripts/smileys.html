@@ -1,0 +1,42 @@
+<html>
+<body>
+
+<!-- Smiley string functions -->
+<script>
+
+/*
+*** Replace all occurences of smileys with IMG tags
+*/
+function addSmileys(str) {
+
+	var smileys = top.Constants.smileys;
+
+	for (var i=0, il=smileys.length, img; i<il; i+=2) {
+
+		img = imgHtml( smileys[i+1] );
+		str = str_replace( smileys[i], img );
+
+	}
+
+	return str;
+}
+
+function imgHtml(strImg) {
+	return '<img src="' + strImg + '" width="16" height="16">';
+}
+
+function str_replace(argvalue, x, y) {
+
+	while (argvalue.indexOf(x) != -1) {
+		var leading = argvalue.substring(0, argvalue.indexOf(x));
+		var trailing = argvalue.substring(argvalue.indexOf(x) + x.length, argvalue.length);
+		argvalue = leading + y + trailing;
+	}
+
+	return argvalue;
+}
+
+</script>
+
+</body>
+</html>

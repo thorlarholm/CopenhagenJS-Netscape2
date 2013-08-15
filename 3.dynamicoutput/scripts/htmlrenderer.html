@@ -1,0 +1,59 @@
+<html>
+<body>
+
+<!-- HTML renderer -->
+<script>
+
+var buffer = new Object();
+
+var htmlStart = '<html><body bgcolor="#bcbcbc">';
+var htmlEnd = '</body></html>';
+var pStart = '<p><font color="#0b0b0b">';
+var pEnd = '</font></p>';
+
+function reset(target) {
+
+	var doc = top[target].document;
+
+	buffer[target] = "";
+
+	doc.open("text/html");
+	doc.write(htmlStart + htmlEnd);
+	doc.close();
+
+}
+
+function output(content, target) {
+
+	var doc = top[target].document;
+
+	buffer[target] = pStart + content + pEnd;
+	var html = htmlStart + buffer[target] + htmlEnd;
+
+	doc.open("text/html");
+	doc.write(html);
+	doc.close();
+
+}
+
+function append(content, target) {
+
+	var doc = top[target].document;
+
+	if (!buffer[target]) {
+		buffer[target] = "";
+	}
+	buffer[target] += pStart + content + pEnd;
+
+	var html = htmlStart + buffer[target] + htmlEnd;
+
+	doc.open("text/html");
+	doc.write(html);
+	doc.close();
+
+}
+
+</script>
+
+</body>
+</html>
