@@ -11,7 +11,7 @@ function init() {
 	top.HTML.output("Ready", "Main");
 
 	var textField = top.Input.document.forms["myForm"].elements["myText"];
-	if (typeof textField.focus === "function") {
+	if (typeof(textField.focus) == "function") {
 		textField.focus();
 	}
 
