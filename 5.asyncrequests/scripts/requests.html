@@ -4,15 +4,23 @@
 <!-- Async requests -->
 <script language="Javascript">
 
+var backend = "http://localhost.com:7008/";
+
 function sendString(str) {
+
+	var now = new Date(), url = backend + "?timestamp=" + now.getTime();
 
 	// Set cookie data
 	top.Cookie.Set("Request", str);
 
 	// Trigger an HTTP request
-	var img = new Image();
-	img.onload = getResponse;
-	img.src = "http://localhost.com:7008/";
+	if (window.Image) {
+		var img = new Image();
+		img.onload = getResponse;
+		img.src = url;
+	} else {
+		alert("SORRY!");
+	}
 
 }
 
