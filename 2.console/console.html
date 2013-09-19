@@ -5,7 +5,7 @@
 <script language="Javascript">
 
 function doEval() {
-	var input = document.forms["codeForm"].elements["code"];
+	var input = document.codeForm.elements.code;
 	var code = input.value;
 
 	eval(code);
