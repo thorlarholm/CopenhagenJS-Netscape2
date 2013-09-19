@@ -6,7 +6,7 @@
 
 function sendText() {
 
-	var input = document.forms["myForm"].elements["myText"];
+	var input = document.myForm.elements["myText"];
 	var text = input.value;
 
 	top.Request.sendString(text);

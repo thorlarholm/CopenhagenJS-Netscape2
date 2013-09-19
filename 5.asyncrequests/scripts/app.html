@@ -10,8 +10,8 @@ function init() {
 	top.HTML.reset("Header");
 	top.HTML.output("Ready", "Main");
 
-	var textField = top.Input.document.forms["myForm"].elements["myText"];
-	if (typeof(textField.focus) == "function") {
+	var textField = top.Input.document.myForm.elements["myText"];
+	if (textField.focus) {
 		textField.focus();
 	}
 
