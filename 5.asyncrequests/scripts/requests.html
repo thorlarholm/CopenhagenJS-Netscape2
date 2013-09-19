@@ -5,6 +5,10 @@
 <script language="Javascript">
 
 var backend = "http://localhost.com:7008/";
+//var backend = "http://192.168.0.101:7008/";
+
+var bufferStart = '<html><body onload="top.Request.getResponse()"><img src="';
+var bufferEnd = '"></body></html>';
 
 function sendString(str) {
 
@@ -19,7 +23,8 @@ function sendString(str) {
 		img.onload = getResponse;
 		img.src = url;
 	} else {
-		alert("SORRY!");
+		var imgHTML = bufferStart + url + bufferEnd;
+		top.HTML.output(imgHTML, "RequestBuffer");
 	}
 
 }
