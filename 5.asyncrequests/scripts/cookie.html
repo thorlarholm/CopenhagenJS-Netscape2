@@ -17,14 +17,14 @@ function Set(name, value, days) {
 }
 
 function Get(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return unescape(c.substring(nameEQ.length,c.length));
+	var nameEQ = name + "=", c = document.cookie;
+	var rest = c.substring(c.indexOf(nameEQ) + nameEQ.length, c.length);
+	var last = rest.indexOf(";");
+	if (last == -1) {
+		last = rest.length;
 	}
-	return null;
+	var val = rest.substring(0, last);
+	return unescape(val);
 }
 
 function Delete(name) {
